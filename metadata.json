@@ -1,0 +1,6 @@
+{
+  "name": "Pastillero Fácil",
+  "description": "Aplicación accesible para adultos mayores para recordar y registrar la toma puntual de medicamentos, con soporte de voz y notificaciones.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
