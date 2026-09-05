@@ -122,7 +122,7 @@ fun PastilleroFacilApp(
                     Column {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text(
-                                text = "Pastillero",
+                                text = "Pastillero Fácil",
                                 fontSize = 26.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = com.example.ui.theme.NaturalPrimary,

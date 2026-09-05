@@ -58,6 +58,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.ImeAction
 import com.example.data.MedicationRepository
 import com.example.ui.components.SeniorButton
 import com.example.ui.components.SeniorOutlinedButton
@@ -231,6 +234,13 @@ fun AddMedicationDialog(
                     shape = RoundedCornerShape(16.dp),
                     textStyle = androidx.compose.ui.text.TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold),
                     singleLine = true,
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                    keyboardActions = KeyboardActions(onDone = {
+                        if (medName.isNotBlank()) {
+                            val startFormatted = String.format("%02d:%02d", startHour, startMinute)
+                            onSave(medName.trim(), frequencyHours, startFormatted)
+                        }
+                    }),
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = NaturalPrimary,
                         unfocusedBorderColor = NaturalBorder

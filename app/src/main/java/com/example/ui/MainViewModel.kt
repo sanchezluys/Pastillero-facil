@@ -54,10 +54,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _userMessage.value = null
     }
 
-    fun saveUserProfile(name: String, photoUri: String?, modoInsistente: Boolean) {
+    fun saveUserProfile(name: String, photoUri: String?, modoInsistente: Boolean, notifyUser: Boolean = false) {
         viewModelScope.launch {
             repository.saveUserProfile(name, photoUri, modoInsistente)
-            _userMessage.value = "Perfil guardado con éxito"
+            if (notifyUser) {
+                _userMessage.value = "Perfil guardado con éxito"
+            }
         }
     }
 

@@ -43,6 +43,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.ImeAction
 import coil.compose.AsyncImage
 import com.example.ui.components.SeniorButton
 import com.example.ui.theme.NaturalBorder
@@ -164,6 +167,11 @@ fun UserRegistrationDialog(
                     shape = RoundedCornerShape(16.dp),
                     textStyle = androidx.compose.ui.text.TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold),
                     singleLine = true,
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                    keyboardActions = KeyboardActions(onDone = {
+                        val finalName = if (name.isBlank()) "Usuario" else name.trim()
+                        onSave(finalName, photoUriString)
+                    }),
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = NaturalPrimary,
                         unfocusedBorderColor = NaturalBorder
